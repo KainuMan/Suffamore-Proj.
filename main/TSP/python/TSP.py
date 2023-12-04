@@ -31,11 +31,10 @@ def TSP(n, distance = None):
                 k = j
                 continue
             if k > j: s += distance[(j,k)]
-            else:
-                s += distance[(k,j)]
+            else: s += distance[(k,j)]
             k = j
         if shortest is None: shortest = i
-        if mincost is None : mincost = s
+        if mincost is None: mincost = s
         if mincost > s:
             shortest = i
             mincost = s
