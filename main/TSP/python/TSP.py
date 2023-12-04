@@ -1,6 +1,6 @@
 from itertools import permutations 
 
-def dainput():
+def seed_input():
     asking = input("Import your seed? (y/n) ")
     if (asking == "y" or asking == "Y"):
         seed = int(input("Seed: "))
