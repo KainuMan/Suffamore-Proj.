@@ -1,8 +1,9 @@
 from TSP import *
 from RNG import *
+from input import *
 import time
 
-n = int(input("Number of cities: "))
+n = number_input("cities")
 seed = seed_input()
 
 start_time = time.time() #Start the execution
