@@ -7,7 +7,7 @@ n = number_input("cities")
 seed = seed_input()
 
 start_time = time.time() #Start the execution
-if seed: d = RNG(seed).distance(n)
+if seed: d = RNG(seed=seed).distance(n)
 else: d = RNG().distance(n)
 tsp = TSP(n, d)
 print("Distance of the cities:",d,"\nShortest way is:",tsp[1],"with the distance of:",tsp[0])
