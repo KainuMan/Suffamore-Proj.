@@ -2,7 +2,7 @@ from TSP import *
 from RNG import *
 from input import *
 import time
-
+# This thing is the one which run all of those code
 n = number_input("cities")
 seed = seed_input()
 

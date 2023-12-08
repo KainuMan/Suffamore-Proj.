@@ -1,24 +1,18 @@
 from itertools import permutations
-
-def inputdistance(n):
-    distance = {}
-    for i in range(n):
-        for j in range(i+1,n):
-            distance[(i,j)] = int(input("Distance of city " + str(i) + " and city " + str(j) + " is: "))
-    return distance
+from input import distance_input
 
 def TSP(n, distance = None):
     shortest = None
     mincost = None
-    if distance is None: distance = inputdistance(n)
-    for i in permutations(range(n), n):
-        if i[0] != 0: continue
+    if distance is None: distance = distance_input(n)
+    for i in permutations(range(n), n):  #Permutation the number so we can get all the path
+        if i[0] != 0: continue  #Since we start at 0, so if the starting point is not 0, we skip
         s = 0
         for j in i:
             if j == 0:
                 k = j
                 continue
-            if k > j: s += distance[(j,k)]
+            if k > j: s += distance[(j,k)] #Just sum up the distance, you might know the rest of it
             else: s += distance[(k,j)]
             k = j
         if shortest is None: shortest = i

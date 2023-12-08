@@ -7,7 +7,7 @@ class nottext2dec:
         else:
             self.text = text
 
-    def notextdec(self):
+    def notextdec(self): #idk what this is but it is 100% not text to decimal
         for i in self.text:
             if (ord(i) < 110):
                 self.s = self.s * 10 + ord(i) - 100
@@ -16,8 +16,7 @@ class nottext2dec:
 
         return self.s
 
-    def sumtext(self):
+    def sumtext(self): #This convert text to decimal and sum them up
         for i in self.text:
             self.s += ord(i)
-
         return self.s
