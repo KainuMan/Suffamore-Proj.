@@ -18,8 +18,10 @@ class RNG:
         else:
             return self.x_prev
     def distance(self, n): #random the distance
-        distance = {}
-        for i in range(n):
-            for j in range(i+1,n):
-                distance[(i,j)] = self.PRNG([1,100])
+        distance=[[0]]
+        for i in reversed(range(n-1)):
+            d = []
+            for j in range(i,n-1):
+                d.append(int(self.PRNG([1,100])))
+            distance.append(d)
         return distance
