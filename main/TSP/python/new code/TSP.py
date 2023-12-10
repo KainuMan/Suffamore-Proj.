@@ -17,7 +17,7 @@ class TSP:
         map.append(a)
         return map
     
-    def Dijkstra(self):
+    def Mystery_Heuristic(self):
         s = 0
         m= self.world_tour_gen()
         x = 0

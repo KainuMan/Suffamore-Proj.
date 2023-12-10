@@ -9,7 +9,7 @@ seed = seed_input()
 start_time = time.time() #Start the execution
 if seed: d = RNG(seed=seed).distance(n)
 else: d = RNG().distance(n)
-method3 = TSP(n, d).Dijkstra()
+method3 = TSP(n, d).Mystery_Heuristic()
 end_time = time.time() #Ends the execution
 
 counted_time = end_time - start_time
