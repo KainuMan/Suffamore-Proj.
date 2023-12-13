@@ -29,7 +29,7 @@ class TSP:
                 else: d[1].append(self.distance[x][i])
                 d[0].append(i)
             s += min(d[1])
-            l = d[0][d[1].index(min(d[1]))]
-            m[0].append(l)
-            m[1][l] = True
+            x = d[0][d[1].index(min(d[1]))]
+            m[0].append(x)
+            m[1][x] = True
         return s,m[0]
