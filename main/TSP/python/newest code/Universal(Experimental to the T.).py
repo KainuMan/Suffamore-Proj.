@@ -55,7 +55,7 @@ def ida_star(state, graph, heuristic, cost_limit):
     generated_nodes = 0
     expanded_nodes = 0
 
-    start_time = time.process_time()
+    start_time = time.perf_counter() 
 
     def search(node, g, f_limit, path):
         # Recursive search function for IDA*
@@ -84,11 +84,11 @@ def ida_star(state, graph, heuristic, cost_limit):
     while True:
         result, optimal_path = search(state, 0, limit, [])
         if result == -1:
-            elapsed_time = time.process_time() - start_time
+            elapsed_time = time.perf_counter()  - start_time
             print("IDA* Goal found. Limit:", limit, "Elapsed time:", elapsed_time)  # Debugging print
             return limit, expanded_nodes, generated_nodes, elapsed_time, optimal_path  # Goal found
         if result == float('inf'):
-            elapsed_time = time.process_time() - start_time
+            elapsed_time = time.perf_counter()  - start_time
             print("IDA* No solution. Limit:", limit, "Elapsed time:", elapsed_time)  # Debugging print
             return None, expanded_nodes, generated_nodes, elapsed_time, None  # No solution
         limit = result
@@ -101,12 +101,12 @@ def a_star(state, graph, heuristic):
     reached = {}
     priority_queue = [(0, state)]
 
-    start_time = time.process_time()
+    start_time = time.perf_counter() 
 
     while priority_queue:
         f, current_state = heapq.heappop(priority_queue)
         if is_goal(current_state, len(graph)):
-            elapsed_time = time.process_time() - start_time
+            elapsed_time = time.perf_counter()  - start_time
             print("A* Goal found. Cost:", f, "Elapsed time:", elapsed_time)  # Debugging print
             optimal_path = []
             while current_state:
@@ -132,7 +132,7 @@ def a_star(state, graph, heuristic):
             heapq.heappush(priority_queue, (g + h, successor))
             generated_nodes += 1
 
-    elapsed_time = time.process_time() - start_time
+    elapsed_time = time.perf_counter()  - start_time
     print("A* No solution. Elapsed time:", elapsed_time)  # Debugging print
     return None, expanded_nodes, generated_nodes, elapsed_time, None  # No solution
 
