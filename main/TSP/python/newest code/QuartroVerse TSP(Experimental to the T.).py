@@ -85,7 +85,8 @@ def ida_star(state, graph, heuristic, cost_limit):
         result, optimal_path = search(state, 0, limit, [])
         if result == -1:
             elapsed_time = time.perf_counter()  - start_time
-            #print("IDA* Goal found. Limit:", limit, "Elapsed time:", elapsed_time)  # Debugging print
+            #print("IDA* Goal found. Limit:", limit, "Elapsed time:", elapsed_time) 
+            # Debugging print. Can be set free for use.
             return limit, expanded_nodes, generated_nodes, elapsed_time, optimal_path  # Goal found
         if result == float('inf'):
             elapsed_time = time.perf_counter()  - start_time
@@ -107,7 +108,8 @@ def a_star(state, graph, heuristic):
         f, current_state = heapq.heappop(priority_queue)
         if is_goal(current_state, len(graph)):
             elapsed_time = time.perf_counter()  - start_time
-            #print("A* Goal found. Cost:", f, "Elapsed time:", elapsed_time)  # Debugging print
+            #print("A* Goal found. Cost:", f, "Elapsed time:", elapsed_time)
+            # Debugging print. Can be set free for use.
             optimal_path = []
             while current_state:
                 optimal_path.insert(0, current_state.current_id)
